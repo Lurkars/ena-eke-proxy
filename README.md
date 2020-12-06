@@ -6,11 +6,12 @@ This is a proxy for getting an [Exposure Key Export](https://developers.google.c
 
 * fetch daily and hourly keys
 * return keys as binary for **ESP-ENA ena-eke-proxy**
+* upload keys with pre-defined TANs to proxy
 
 ### Features planned
 
 * check signature of Exposure Key Export
-* upload own keys
+* upload keys to external server
 * signature of binary keydata
 
 ### endpoints
