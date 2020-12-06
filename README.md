@@ -1,6 +1,6 @@
 # ENA Exposue Key export proxy
 
-This is a proxy for getting an [Exposure Key Export](https://developers.google.com/android/exposure-notifications/exposure-key-file-format) to an [ESP-ENA](https://github.com/Lurkars/esp-ena) with the *ena-eke-proxy* module. 
+This is a proxy for getting an [Exposure Key Export](https://developers.google.com/android/exposure-notifications/exposure-key-file-format) to [esp-ena](https://github.com/Lurkars/esp-ena) with *ena-eke-proxy* module. 
 
 ### Features implemented
 
