@@ -43,6 +43,12 @@ This is a proxy for getting an [Exposure Key Export](https://developers.google.c
 
 mvn clean package -P [*database-profile*]
 
+available database-profiles, Spring Data JPA is used, see documentation for configuration
+* *db-inmemory* in-memory, for testing
+* *db-mariadb* MariaDB
+* *db-mysql* MySql
+* *db-postgresql* ProstgeSQL
+
 ## configure
 
 Expample application.properties (place in path of ena-eke-proxy.jar)
@@ -53,6 +59,7 @@ ena-eke-proxy.daily-url=https://svc90.main.px.t-online.de/version/v1/diagnosis-k
 ena-eke-proxy.hourly-url=${ena-eke-proxy.daily-url}/hour/%s
 ena-eke-proxy.supported-countries=DE
 ena-eke-proxy.source=CWA
+ena-eke-proxy.debug.submission-keys=AAAAAAAAAA,BBBBBBBBBB,CCCCCCCCCC,ZZZZZZZZZZ,1234567890
 
 # example with mariadb on localhost
 spring.datasource.url=jdbc:mariadb://localhost:3306/databasename
@@ -78,7 +85,7 @@ User=enaekeproxy
 ExecStart=/var/enaekeproxy/ena-eke-proxy.jar.jar
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=enaekeproxy
+SyslogIdentifier=ena-eke-proxy
 
 [Install]
 WantedBy=multi-user.target
