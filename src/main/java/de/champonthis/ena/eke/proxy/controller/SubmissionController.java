@@ -53,13 +53,13 @@ public class SubmissionController {
 
 	/**
 	 * 
-	 * @param authorizationHeader
+	 * @param token
 	 * @param request
 	 * @param response
 	 */
 	@PostMapping
 	public void getDailyKeys(
-			@RequestHeader(name = HttpHeaders.AUTHORIZATION, required = true) String authorizationHeader,
+			@RequestHeader(name = HttpHeaders.AUTHORIZATION, required = true) String token,
 			HttpServletRequest request, HttpServletResponse response) {
 
 		// TODO for submission now, hard coded keys are provided, submission key should
@@ -67,7 +67,7 @@ public class SubmissionController {
 		boolean validAuthorizationHeader = debugSubmissionKeys == null;
 		if (!validAuthorizationHeader) {
 			for (String debugSubmissionKey : debugSubmissionKeys) {
-				if (debugSubmissionKey.equalsIgnoreCase(authorizationHeader)) {
+				if (debugSubmissionKey.equalsIgnoreCase(token)) {
 					validAuthorizationHeader = true;
 					break;
 				}

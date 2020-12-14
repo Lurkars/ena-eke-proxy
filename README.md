@@ -16,28 +16,46 @@ This is a proxy for getting an [Exposure Key Export](https://developers.google.c
 
 ### endpoints
 
-### binary payload
+#### binary payload
+
+payload format for a single key both for fetching and upload, concatenation for multiple keys.
+
 
 | Key Data | Rolling Start Interval Number | Rolling Period | Days Since Onset Of Symptoms |
 | :------: | :---------------------------: | :------------: | :--------------------------: |
 | 16 bytes |            4 bytes            |    4 bytes     |           4 bytes            |
 
-### daily keys
-*/version/v1/diagnosis-keys/country/{countryCode}/date/{dateString}* 
-### hourly keys
-*/version/v1/diagnosis-keys/country/{countryCode}/date/{dateString}/hour/{hour}* 
-### upload keys
-*/version/v1/diagnosis-keys* 
 
-### request parameters
-*page* and *size* for pagination (default ?page=0&size=500 resulting in first 500 keys)
+#### fetching keys
 
-### responses
-* *200 OK* for successfull request with keys in payload
+url for daily keys
+> */version/v1/diagnosis-keys/country/{countryCode}/date/{dateString}* 
+
+url for hourly keys
+> */version/v1/diagnosis-keys/country/{countryCode}/date/{dateString}/hour/{hour}* 
+
+**request parameters**
+> *page* and *size* for pagination (default ?page=0&size=500 resulting in first 500 keys)
+
+**responses**
+> * *200 OK* for successfull request with keys in payload
 * *204 NO CONTENT* for pagination out of bounds
 * *404 NOT FOUND* if keys are not available yet (not fetched)
 * *406 NOT ACCEPTABLE* for wrong/not supported country code
 * *409 CONFLICT* on error 
+
+#### uploading keys
+
+upload url
+> */version/v1/diagnosis-keys* 
+
+**headers**
+> *Authorization* with submission token as value
+
+**responses**
+> * *200 OK* for successfull upload
+* *400 BAD REQUEST* for errors in payload
+* *401 UNAUTHORIZED* for invalid/missing token in Authorization header
 
 ## build
 
