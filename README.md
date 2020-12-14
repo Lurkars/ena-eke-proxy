@@ -52,7 +52,7 @@ upload url
 ##### headers
 > *Authorization* with submission token as value
 
-###### responses
+##### responses
 > * *200 OK* for successfull upload
 > * *400 BAD REQUEST* for errors in payload
 > * *401 UNAUTHORIZED* for invalid/missing token in Authorization header
