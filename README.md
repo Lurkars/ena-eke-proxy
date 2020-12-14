@@ -34,28 +34,28 @@ url for daily keys
 url for hourly keys
 > */version/v1/diagnosis-keys/country/{countryCode}/date/{dateString}/hour/{hour}* 
 
-**request parameters**
+##### request parameters
 > *page* and *size* for pagination (default ?page=0&size=500 resulting in first 500 keys)
 
-**responses**
+##### responses
 > * *200 OK* for successfull request with keys in payload
-* *204 NO CONTENT* for pagination out of bounds
-* *404 NOT FOUND* if keys are not available yet (not fetched)
-* *406 NOT ACCEPTABLE* for wrong/not supported country code
-* *409 CONFLICT* on error 
+> * *204 NO CONTENT* for pagination out of bounds
+> * *404 NOT FOUND* if keys are not available yet (not fetched)
+> * *406 NOT ACCEPTABLE* for wrong/not supported country code
+> * *409 CONFLICT* on error 
 
 #### uploading keys
 
 upload url
 > */version/v1/diagnosis-keys* 
 
-**headers**
+##### headers
 > *Authorization* with submission token as value
 
-**responses**
+###### responses
 > * *200 OK* for successfull upload
-* *400 BAD REQUEST* for errors in payload
-* *401 UNAUTHORIZED* for invalid/missing token in Authorization header
+> * *400 BAD REQUEST* for errors in payload
+> * *401 UNAUTHORIZED* for invalid/missing token in Authorization header
 
 ## build
 
